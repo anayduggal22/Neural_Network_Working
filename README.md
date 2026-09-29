@@ -1,7 +1,7 @@
 # Neural Network From Scratch (NumPy)
 
-A minimal neural network implemented entirely from scratch in NumPy —
-forward pass, backpropagation, and gradient descent with no deep learning framework — verified against an equivalent
+A minimal neural network implemented entirely from scratch in NumPy 
+forward pass, backpropagation, and gradient descent with no deep learning framework verified against an equivalent
 Keras model trained on the same data.
 
 ------------------------------------------------------------------------
@@ -112,7 +112,7 @@ b1 = b1 - lr * db1
 ```
 
 The gradient for the output layer is computed first, then propagated
-backward into the hidden layer, reusing the already-computed output
+backward into the hidden layer, reusing the already computed output
 layer gradient rather than recalculating it from the loss directly.
 This is the core mechanic of backpropagation: computing gradients in
 reverse order (output to input) so each layer's local derivative is
@@ -168,16 +168,16 @@ optimizer, not from any error in the from-scratch version.
 -   At very small epoch counts (around 1,000), the two implementations
     can appear meaningfully different in their predictions, since
     neither has fully converged yet. This is a training-time artifact,
-    not a discrepancy in the underlying math — both converge to
+    not a discrepancy in the underlying math both converge to
     equivalent results once trained sufficiently.
 -   For a dataset this small (4 samples), Keras's per-epoch overhead
     (graph tracing, logging, callback checks) is disproportionately
     large relative to the trivial amount of actual computation
     involved. A short training run of very few epochs can appear to
     take a noticeable amount of time in Keras, purely from this fixed
-    overhead, while the equivalent NumPy loop runs near-instantly.
+    overhead, while the equivalent NumPy loop runs near instantly.
     Deep learning frameworks are optimized for scale, not
-    toy-sized problems.
+    toy sized problems.
 
 ------------------------------------------------------------------------
 
